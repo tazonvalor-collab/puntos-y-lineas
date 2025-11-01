@@ -13,33 +13,13 @@
         
         body {
             font-family: 'Arial', sans-serif;
-            background: 
-                linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path fill="rgba(255,255,255,0.05)" d="M100 20L180 70L180 130L100 180L20 130L20 70Z"/><text x="100" y="110" text-anchor="middle" fill="rgba(255,255,255,0.1)" font-size="24">🎲</text></svg>');
-            background-size: cover, 300px 300px;
-            background-position: center, center;
-            background-repeat: no-repeat, repeat;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
             flex-direction: column;
-            position: relative;
-        }
-        
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150"><path fill="rgba(255,255,255,0.03)" d="M75 15L135 52.5L135 97.5L75 135L15 97.5L15 52.5Z"/><text x="75" y="82" text-anchor="middle" fill="rgba(255,255,255,0.05)" font-size="18" font-family="Arial">🔺</text></svg>');
-            background-size: 150px 150px;
-            background-repeat: repeat;
-            pointer-events: none;
-            z-index: -1;
         }
         
         .container {
@@ -50,20 +30,6 @@
             width: 100%;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .logo-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .logo {
-            max-width: 180px;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
         
         h1 {
@@ -86,13 +52,6 @@
             padding: 20px;
             background: rgba(248, 249, 250, 0.8);
             border-radius: 10px;
-            backdrop-filter: blur(5px);
-        }
-        
-        .section h2 {
-            color: #495057;
-            margin-bottom: 15px;
-            font-size: 1.2em;
         }
         
         input {
@@ -102,13 +61,6 @@
             border: 2px solid #dee2e6;
             border-radius: 8px;
             font-size: 16px;
-            transition: border-color 0.3s;
-            background: white;
-        }
-        
-        input:focus {
-            outline: none;
-            border-color: #667eea;
         }
         
         button {
@@ -121,126 +73,11 @@
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
             margin-top: 10px;
         }
         
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
-        }
-        
-        button:active {
-            transform: translateY(0);
-        }
-        
-        button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .result {
-            background: rgba(231, 245, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 15px;
-            text-align: center;
-            font-size: 1.1em;
-            color: #0c5c9a;
-            font-weight: bold;
-        }
-        
-        .dice-container {
-            perspective: 1000px;
-            margin: 30px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 120px;
-        }
-        
-        .dice-3d {
-            width: 80px;
-            height: 80px;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 1s;
-        }
-        
-        .dice-3d.rolling {
-            animation: roll3D 1s ease-out;
-        }
-        
-        .dice-face {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            background: white;
-            border: 2px solid #333;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            backface-visibility: hidden;
-        }
-        
-        .face-1 { transform: translateZ(40px); }
-        .face-2 { transform: rotateY(90deg) translateZ(40px); }
-        .face-3 { transform: rotateX(90deg) translateZ(40px); }
-        .face-4 { transform: rotateX(-90deg) translateZ(40px); }
-        .face-5 { transform: rotateY(-90deg) translateZ(40px); }
-        .face-6 { transform: rotateY(180deg) translateZ(40px); }
-        
-        .dot {
-            width: 12px;
-            height: 12px;
-            background: black;
-            border-radius: 50%;
-            position: absolute;
-        }
-        
-        .face-1 .dot {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        
-        .face-2 .dot:nth-child(1) { top: 20px; left: 20px; }
-        .face-2 .dot:nth-child(2) { bottom: 20px; right: 20px; }
-        
-        .face-3 .dot:nth-child(1) { top: 20px; left: 20px; }
-        .face-3 .dot:nth-child(2) { top: 50%; left: 50%; transform: translate(-50%, -50%); }
-        .face-3 .dot:nth-child(3) { bottom: 20px; right: 20px; }
-        
-        .face-4 .dot:nth-child(1) { top: 20px; left: 20px; }
-        .face-4 .dot:nth-child(2) { top: 20px; right: 20px; }
-        .face-4 .dot:nth-child(3) { bottom: 20px; left: 20px; }
-        .face-4 .dot:nth-child(4) { bottom: 20px; right: 20px; }
-        
-        .face-5 .dot:nth-child(1) { top: 20px; left: 20px; }
-        .face-5 .dot:nth-child(2) { top: 20px; right: 20px; }
-        .face-5 .dot:nth-child(3) { top: 50%; left: 50%; transform: translate(-50%, -50%); }
-        .face-5 .dot:nth-child(4) { bottom: 20px; left: 20px; }
-        .face-5 .dot:nth-child(5) { bottom: 20px; right: 20px; }
-        
-        .face-6 .dot:nth-child(1) { top: 20px; left: 20px; }
-        .face-6 .dot:nth-child(2) { top: 20px; right: 20px; }
-        .face-6 .dot:nth-child(3) { top: 50%; left: 20px; transform: translateY(-50%); }
-        .face-6 .dot:nth-child(4) { top: 50%; right: 20px; transform: translateY(-50%); }
-        .face-6 .dot:nth-child(5) { bottom: 20px; left: 20px; }
-        .face-6 .dot:nth-child(6) { bottom: 20px; right: 20px; }
-        
-        @keyframes roll3D {
-            0% { transform: rotateX(0) rotateY(0) rotateZ(0); }
-            25% { transform: rotateX(180deg) rotateY(180deg) rotateZ(90deg); }
-            50% { transform: rotateX(360deg) rotateY(360deg) rotateZ(180deg); }
-            75% { transform: rotateX(540deg) rotateY(540deg) rotateZ(270deg); }
-            100% { transform: rotateX(720deg) rotateY(720deg) rotateZ(360deg); }
-        }
-        
-        .player-list {
-            margin-top: 10px;
+        .hidden {
+            display: none;
         }
         
         .player-item {
@@ -252,244 +89,16 @@
             justify-content: space-between;
             align-items: center;
         }
-        
-        .remove-btn {
-            background: #dc3545;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 12px;
-            width: auto;
-            margin: 0;
-        }
-        
-        .game-info {
-            background: rgba(255, 243, 205, 0.9);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 4px solid #ffc107;
-        }
-        
-        .game-info p {
-            margin: 5px 0;
-            color: #856404;
-        }
-        
-        .hidden {
-            display: none;
-        }
-        
-        .rules {
-            background: rgba(209, 236, 241, 0.9);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 4px solid #17a2b8;
-        }
-        
-        .rules h3 {
-            color: #0c5460;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        
-        .rules p {
-            color: #0c5460;
-            margin: 5px 0;
-            font-size: 0.9em;
-        }
-        
-        .shape-indicator {
-            background: rgba(231, 245, 255, 0.9);
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 1.2em;
-            margin-top: 10px;
-            border: 2px solid #667eea;
-        }
-        
-        .scoreboard {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-        
-        .score-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            margin: 5px 0;
-            background: #f8f9fa;
-            border-radius: 5px;
-            align-items: center;
-        }
-        
-        .score-input {
-            width: 80px;
-            padding: 8px;
-            text-align: center;
-            border: 2px solid #dee2e6;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        
-        .winner {
-            background: #d4edda;
-            border: 2px solid #28a745;
-            font-weight: bold;
-        }
-        
-        .turn-score-input {
-            background: #fff;
-            border: 2px solid #667eea;
-            margin: 10px 0;
-        }
-        
-        .current-player-highlight {
-            background: #e7f5ff;
-            border: 2px solid #667eea;
-            transform: scale(1.02);
-            transition: all 0.3s ease;
-        }
-        
-        .total-score {
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #495057;
-        }
-        
-        .turn-counter {
-            background: #667eea;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            display: inline-block;
-            margin: 10px 0;
-        }
-        
-        .credits {
-            color: white;
-            text-align: center;
-            font-size: 14px;
-            font-weight: bold;
-            margin-top: 10px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-        
-        .optional {
-            color: #6c757d;
-            font-size: 0.9em;
-        }
-        
-        .ranking-info {
-            background: rgba(255, 243, 205, 0.9);
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #ffc107;
-        }
-        
-        .ranking-position {
-            font-size: 2em;
-            font-weight: bold;
-            color: #667eea;
-            text-align: center;
-            margin: 10px 0;
-        }
-        
-        .top-100 {
-            color: #28a745;
-        }
-        
-        .outside-top-100 {
-            color: #dc3545;
-        }
-        
-        .loading {
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-                margin: 10px;
-            }
-            
-            h1 {
-                font-size: 1.5em;
-            }
-            
-            .logo {
-                max-width: 140px;
-            }
-            
-            .dice-3d {
-                width: 60px;
-                height: 60px;
-            }
-            
-            .dice-face {
-                width: 60px;
-                height: 60px;
-            }
-            
-            .dot {
-                width: 8px;
-                height: 8px;
-            }
-            
-            .face-1 { transform: translateZ(30px); }
-            .face-2 { transform: rotateY(90deg) translateZ(30px); }
-            .face-3 { transform: rotateX(90deg) translateZ(30px); }
-            .face-4 { transform: rotateX(-90deg) translateZ(30px); }
-            .face-5 { transform: rotateY(-90deg) translateZ(30px); }
-            .face-6 { transform: rotateY(180deg) translateZ(30px); }
-            
-            button {
-                padding: 12px;
-                font-size: 14px;
-            }
-            
-            input {
-                padding: 10px;
-                font-size: 14px;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo-container">
-            <!-- TU LOGO REAL -->
-            <img src="https://i.imgur.com/oNBbqsW.png" 
-                 alt="Logo Puntos y Formas" class="logo">
-        </div>
-        
         <h1>🎲 Puntos y Formas</h1>
         <div class="subtitle">¡Forma triángulos y gana! 🔺</div>
         
-        <!-- Configuración inicial -->
         <div id="setup" class="section">
-            <div class="rules">
-                <h3>📋 Reglas del Juego</h3>
-                <p>1. Cada jugador dibuja puntos en un papel según lo indicado</p>
-                <p>2. En tu turno, lanzas el dado de 6 caras y unes esa cantidad de puntos</p>
-                <p>3. <strong>Forma triángulos</strong> según lo indique la sesión</p>
-                <p>4. Registra cuántas formas completaste en cada turno</p>
-                <p>5. ¡Gana quien complete más triángulos al final!</p>
-            </div>
-            
             <h2>Agregar Jugadores</h2>
-            <input type="text" id="playerName" placeholder="Nombre del jugador" onkeypress="if(event.key==='Enter') addPlayer()">
-            <input type="email" id="playerEmail" placeholder="Correo electrónico (opcional)" class="optional">
+            <input type="text" id="playerName" placeholder="Nombre del jugador">
             <button onclick="addPlayer()">Agregar Jugador</button>
             
             <div class="player-list" id="playerList"></div>
@@ -499,145 +108,32 @@
             </button>
         </div>
         
-        <!-- Juego en progreso -->
         <div id="gameArea" class="hidden">
-            <div class="game-info">
-                <p><strong>Puntos a dibujar:</strong> <span id="totalPoints"></span></p>
-                <p><strong>Turno actual:</strong> <span id="currentPlayer"></span></p>
-                <div class="turn-counter">
-                    Turno: <span id="turnCounter">1</span>
-                </div>
-                <div class="shape-indicator">
-                    <strong>Figura a formar:</strong> <span id="shapeType">🔺 Triángulos</span>
-                </div>
-            </div>
-            
             <div class="section">
-                <h2>Lanzar Dado (6 caras)</h2>
-                
-                <div class="dice-container">
-                    <div class="dice-3d" id="dice3D">
-                        <div class="dice-face face-1">
-                            <div class="dot"></div>
-                        </div>
-                        <div class="dice-face face-2">
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                        </div>
-                        <div class="dice-face face-3">
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                        </div>
-                        <div class="dice-face face-4">
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                        </div>
-                        <div class="dice-face face-5">
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                        </div>
-                        <div class="dice-face face-6">
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <button onclick="rollDice()" id="rollBtn">Lanzar Dado</button>
-                <div id="diceResult" class="result hidden"></div>
-                
-                <div id="scoreInputSection" class="hidden">
-                    <h3 style="margin-top: 20px;">Registrar Triángulos Completados</h3>
-                    <input type="number" id="shapesCompleted" class="score-input turn-score-input" 
-                           placeholder="Cantidad de triángulos" min="0" value="0">
-                    <button onclick="submitTurnScore()" style="background: #28a745;">
-                        Registrar y Siguiente Turno
-                    </button>
-                </div>
-            </div>
-            
-            <div class="section">
-                <h2>Marcador Parcial</h2>
-                <div class="scoreboard" id="currentScores"></div>
-            </div>
-            
-            <div class="section">
-                <button onclick="endGame()" style="background: #dc3545;">Finalizar Juego</button>
-                <button onclick="resetGame()" style="background: #ffc107; color: #000;">Nuevo Juego</button>
-            </div>
-        </div>
-        
-        <!-- Marcador Final -->
-        <div id="scoreboardArea" class="hidden">
-            <div class="section">
-                <h2>🏆 Marcador Final</h2>
-                <div class="scoreboard" id="finalScoreList"></div>
-            </div>
-            
-            <div id="winnerSection" class="section">
-                <h2>👑 Ganador</h2>
-                <div id="winnerDisplay"></div>
-                <button onclick="resetGame()" style="background: #ffc107; color: #000; margin-top: 15px;">Nuevo Juego</button>
+                <h2>Juego en Progreso</h2>
+                <p>Turno de: <span id="currentPlayer"></span></p>
+                <button onclick="rollDice()">Lanzar Dado</button>
+                <div id="diceResult"></div>
             </div>
         </div>
     </div>
 
-    <div class="credits">by Tazon Valor Sir_Corso</div>
-    
     <script>
         let players = [];
-        let playerEmails = {};
         let currentPlayerIndex = 0;
-        let currentTurn = 1;
-        let totalPoints = 0;
-        let playerScores = {};
-        let currentDiceResult = 0;
-        let winnerName = '';
 
         function addPlayer() {
             const nameInput = document.getElementById('playerName');
-            const emailInput = document.getElementById('playerEmail');
             const name = nameInput.value.trim();
-            const email = emailInput.value.trim();
             
             if (name === '') {
                 alert('Por favor ingresa un nombre');
                 return;
             }
             
-            if (name.length < 2) {
-                alert('El nombre debe tener al menos 2 caracteres');
-                return;
-            }
-            
-            if (players.includes(name)) {
-                alert('Este jugador ya existe');
-                return;
-            }
-            
-            if (players.length >= 6) {
-                alert('Máximo 6 jugadores permitidos');
-                return;
-            }
-            
             players.push(name);
-            if (email) {
-                playerEmails[name] = email;
-            }
-            
             updatePlayerList();
             nameInput.value = '';
-            emailInput.value = '';
             nameInput.focus();
             
             document.getElementById('startBtn').disabled = players.length < 2;
@@ -647,23 +143,16 @@
             const list = document.getElementById('playerList');
             list.innerHTML = players.map((p, i) => `
                 <div class="player-item">
-                    <div>
-                        <span>${i + 1}. ${p}</span>
-                        ${playerEmails[p] ? `<br><small style="color: #6c757d;">${playerEmails[p]}</small>` : ''}
-                    </div>
-                    <button class="remove-btn" onclick="removePlayer(${i})">Eliminar</button>
+                    <span>${i + 1}. ${p}</span>
+                    <button onclick="removePlayer(${i})" style="background: #dc3545; padding: 5px 10px; font-size: 12px;">Eliminar</button>
                 </div>
             `).join('');
         }
         
         function removePlayer(index) {
-            if (index >= 0 && index < players.length) {
-                const playerName = players[index];
-                players.splice(index, 1);
-                delete playerEmails[playerName];
-                updatePlayerList();
-                document.getElementById('startBtn').disabled = players.length < 2;
-            }
+            players.splice(index, 1);
+            updatePlayerList();
+            document.getElementById('startBtn').disabled = players.length < 2;
         }
         
         function startGame() {
@@ -672,196 +161,15 @@
                 return;
             }
             
-            currentPlayerIndex = Math.floor(Math.random() * players.length);
-            currentTurn = 1;
-            totalPoints = Math.floor(Math.random() * 16) + 5;
-            
-            players.forEach(p => playerScores[p] = 0);
-            
             document.getElementById('setup').classList.add('hidden');
             document.getElementById('gameArea').classList.remove('hidden');
-            
-            updateGameInfo();
-            updateCurrentScores();
-        }
-        
-        function updateGameInfo() {
-            document.getElementById('totalPoints').textContent = totalPoints;
-            document.getElementById('currentPlayer').textContent = players[currentPlayerIndex];
-            document.getElementById('turnCounter').textContent = currentTurn;
-            
-            document.getElementById('scoreInputSection').classList.add('hidden');
-            document.getElementById('diceResult').classList.add('hidden');
-            document.getElementById('rollBtn').disabled = false;
-            document.getElementById('shapesCompleted').value = '0';
-            
-            resetDicePosition();
-        }
-        
-        function resetDicePosition() {
-            const dice = document.getElementById('dice3D');
-            dice.style.transform = 'rotateX(0) rotateY(0) rotateZ(0)';
-            showDiceFace(1);
-        }
-        
-        function showDiceFace(faceNumber) {
-            const dice = document.getElementById('dice3D');
-            const rotations = {
-                1: 'rotateX(0) rotateY(0) rotateZ(0)',
-                2: 'rotateY(-90deg)',
-                3: 'rotateX(-90deg)',
-                4: 'rotateX(90deg)',
-                5: 'rotateY(90deg)',
-                6: 'rotateY(180deg)'
-            };
-            dice.style.transform = rotations[faceNumber] || rotations[1];
+            document.getElementById('currentPlayer').textContent = players[0];
         }
         
         function rollDice() {
-            const dice = document.getElementById('dice3D');
-            const resultDiv = document.getElementById('diceResult');
-            const rollBtn = document.getElementById('rollBtn');
-            
-            rollBtn.disabled = true;
-            rollBtn.textContent = 'Lanzando...';
-            
-            dice.classList.add('rolling');
-            
-            let counter = 0;
-            const interval = setInterval(() => {
-                const tempResult = Math.floor(Math.random() * 6) + 1;
-                showDiceFace(tempResult);
-                counter++;
-                
-                if (counter > 10) {
-                    clearInterval(interval);
-                    currentDiceResult = Math.floor(Math.random() * 6) + 1;
-                    showDiceFace(currentDiceResult);
-                    dice.classList.remove('rolling');
-                    
-                    resultDiv.textContent = `${players[currentPlayerIndex]} debe unir ${currentDiceResult} puntos`;
-                    resultDiv.classList.remove('hidden');
-                    
-                    document.getElementById('scoreInputSection').classList.remove('hidden');
-                    rollBtn.disabled = false;
-                    rollBtn.textContent = 'Lanzar Dado';
-                }
-            }, 100);
+            const result = Math.floor(Math.random() * 6) + 1;
+            document.getElementById('diceResult').textContent = `Salio el número: ${result}`;
         }
-        
-        function submitTurnScore() {
-            const input = document.getElementById('shapesCompleted');
-            const shapes = parseInt(input.value) || 0;
-            
-            if (shapes < 0) {
-                alert('La cantidad no puede ser negativa');
-                return;
-            }
-            
-            const currentPlayer = players[currentPlayerIndex];
-            playerScores[currentPlayer] += shapes;
-            
-            currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
-            
-            if (currentPlayerIndex === 0) {
-                currentTurn++;
-            }
-            
-            updateGameInfo();
-            updateCurrentScores();
-        }
-        
-        function updateCurrentScores() {
-            const scoresDiv = document.getElementById('currentScores');
-            const sortedPlayers = [...players].sort((a, b) => playerScores[b] - playerScores[a]);
-            
-            scoresDiv.innerHTML = sortedPlayers.map((p, index) => {
-                const isCurrent = p === players[currentPlayerIndex];
-                return `
-                    <div class="score-item ${isCurrent ? 'current-player-highlight' : ''}">
-                        <span>${index + 1}. ${p}</span>
-                        <span class="total-score">${playerScores[p]} Triángulos</span>
-                    </div>
-                `;
-            }).join('');
-        }
-        
-        function endGame() {
-            document.getElementById('gameArea').classList.add('hidden');
-            document.getElementById('scoreboardArea').classList.remove('hidden');
-            
-            showFinalResults();
-        }
-        
-        function showFinalResults() {
-            const finalScoreList = document.getElementById('finalScoreList');
-            const winnerDisplay = document.getElementById('winnerDisplay');
-            
-            const sortedPlayers = [...players].sort((a, b) => playerScores[b] - playerScores[a]);
-            const maxScore = playerScores[sortedPlayers[0]];
-            const winners = sortedPlayers.filter(p => playerScores[p] === maxScore);
-            
-            winnerName = winners[0];
-            
-            finalScoreList.innerHTML = sortedPlayers.map((p, index) => {
-                const isWinner = playerScores[p] === maxScore;
-                return `
-                    <div class="score-item ${isWinner ? 'winner' : ''}">
-                        <span>${index + 1}. ${p}</span>
-                        <span class="total-score">${playerScores[p]} Triángulos</span>
-                    </div>
-                `;
-            }).join('');
-            
-            if (winners.length === 1) {
-                winnerDisplay.innerHTML = `
-                    <div style="text-align: center; padding: 20px;">
-                        <div style="font-size: 3em; margin-bottom: 10px;">🎉</div>
-                        <p style="font-size: 1.5em; color: #28a745; margin-bottom: 10px;">
-                            <strong>${winners[0]}</strong>
-                        </p>
-                        <p style="font-size: 1.2em;">
-                            ¡Es el ganador con ${maxScore} triángulos completados! 🔺
-                        </p>
-                    </div>
-                `;
-            } else {
-                winnerDisplay.innerHTML = `
-                    <div style="text-align: center; padding: 20px;">
-                        <div style="font-size: 3em; margin-bottom: 10px;">🤝</div>
-                        <p style="font-size: 1.5em; color: #ffc107; margin-bottom: 10px;">
-                            <strong>${winners.join(' y ')}</strong>
-                        </p>
-                        <p style="font-size: 1.2em;">
-                            ¡Empate con ${maxScore} triángulos cada uno! 🔺
-                        </p>
-                    </div>
-                `;
-            }
-        }
-        
-        function resetGame() {
-            if (confirm('¿Estás seguro de que quieres comenzar un nuevo juego?')) {
-                players = [];
-                playerEmails = {};
-                playerScores = {};
-                currentTurn = 1;
-                currentPlayerIndex = 0;
-                winnerName = '';
-                
-                document.getElementById('gameArea').classList.add('hidden');
-                document.getElementById('scoreboardArea').classList.add('hidden');
-                document.getElementById('setup').classList.remove('hidden');
-                document.getElementById('playerList').innerHTML = '';
-                document.getElementById('startBtn').disabled = true;
-                document.getElementById('playerName').value = '';
-                document.getElementById('playerEmail').value = '';
-            }
-        }
-        
-        window.onload = function() {
-            resetDicePosition();
-        };
     </script>
 </body>
 </html>
